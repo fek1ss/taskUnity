@@ -1,28 +1,26 @@
 'use client'
 
 import { useState } from 'react'
+import styles from './Header.module.scss'
 
 export function Header() {
   const isAdmin = true
   const [open, setOpen] = useState(false)
 
   return (
-    <header style={{ background: '#D41E1C' }} className="px-16 h-24 w-full">
-      <div className="flex items-center justify-between h-full">
-        <h1 className="text-lg font-semibold">PR DEPARTMENT</h1>
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <h1 className={styles.title}>PR DEPARTMENT</h1>
 
-        <nav className="relative flex items-center gap-4">
+        <nav className={styles.nav}>
           {/* Кнопка */}
           <button
             onClick={() => setOpen(prev => !prev)}
-            style={{ background: '#E21F1D'}}
-            className="font-inter inline-flex items-center gap-1 rounded px-3 py-2 text-sm font-medium "
+            className={`${styles.boardButton} ${open ? styles.active : ''}`}
           >
             Доска
             <svg
-              className={`h-4 w-4 transition-transform ${
-                open ? 'rotate-180' : ''
-              }`}
+              className={`${styles.arrow} ${open ? styles.rotated : ''}`}
               viewBox="0 0 24 24"
               fill="none"
             >
@@ -38,30 +36,20 @@ export function Header() {
 
           {/* Dropdown */}
           {open && (
-            <div style={{background: "#E21F1D"}} className="absolute top-full left-0 mt-2 z-10 rounded-md shadow-md">
-              <ul className="py-1 text-sm">
+            <div className={styles.dropdown}>
+              <ul>
                 <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Личная
-                  </a>
+                  <a href="#">Личная</a>
                 </li>
                 <li>
-                  <a
-                    href="#"
-                    className="block px-4 py-2 hover:bg-gray-100"
-                  >
-                    Общая
-                  </a>
+                  <a href="#">Общая</a>
                 </li>
               </ul>
             </div>
           )}
 
           {isAdmin && (
-            <button className="rounded px-3 py-2 text-sm hover:bg-gray-100">
+            <button className={styles.adminButton}>
               Departments
             </button>
           )}

@@ -1,0 +1,81 @@
+.header {
+  height: 96px; // h-24
+  width: 100%;
+  padding: 0 64px; // px-16
+  background: #d41e1c;
+}
+
+.inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.boardButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  background: #d41e1c;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.active {
+  background: #e21f1d;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+
+.rotated {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #e21f1d;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    display: block;
+    padding: 8px 20px;
+    font-size: 14px;
+    text-decoration: none;
+  }
+}
+
+.adminButton {
+  padding: 8px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+}

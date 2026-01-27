@@ -1,4 +1,3 @@
-@import "tailwindcss";
 
 :root {
   --background: #f1f1f1;
@@ -6,6 +5,12 @@
   --yellow-color: #F3E788;
   --blue-color: #7AABF9;
   --green-color: #7EF178;
+}
+
+*,body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .bg-primary {
