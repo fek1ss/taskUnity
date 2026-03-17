@@ -1,6 +1,7 @@
 // features/auth/register/model/useRegister.ts
 import { useState } from "react";
-import { register as registerApi, RegisterDto } from "@/shared/api/auth";
+import { register as registerApi } from "@/shared/api/auth";
+import { RegisterDto } from "../../types/auth";
 
 export const useRegister = () => {
   const [loading, setLoading] = useState(false);

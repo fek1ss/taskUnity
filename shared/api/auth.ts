@@ -1,19 +1,10 @@
 // shared/api/auth.ts
+import { LoginDto, RegisterDto } from "@/features/auth/types/auth";
 import axios from "axios";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 
-export interface LoginDto {
-  email: string;
-  password: string;
-}
-
-export interface RegisterDto {
-  email: string;
-  password: string;
-  name: string;
-}
 
 // Login
 export const login = async (data: LoginDto) => {
