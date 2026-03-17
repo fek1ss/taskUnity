@@ -2,6 +2,9 @@
 
 import { useState } from 'react'
 import styles from './Header.module.scss'
+import Link from 'next/link'
+import { LuLayoutDashboard, LuUser, LuBuilding2 } from 'react-icons/lu'
+
 
 export function Header() {
   const isAdmin = true
@@ -13,46 +16,36 @@ export function Header() {
         <h1 className={styles.title}>PR DEPARTMENT</h1>
 
         <nav className={styles.nav}>
-          {/* Кнопка */}
-          <button
-            onClick={() => setOpen(prev => !prev)}
-            className={`${styles.boardButton} ${open ? styles.active : ''}`}
-          >
-            Доска
-            <svg
-              className={`${styles.arrow} ${open ? styles.rotated : ''}`}
-              viewBox="0 0 24 24"
-              fill="none"
+          <div className={styles.boardWrapper}>
+            <button
+              onClick={() => setOpen(prev => !prev)}
+              className={`${styles.boardButton} ${open ? styles.active : ''}`}
             >
-              <path
-                d="m19 9-7 7-7-7"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+              <LuLayoutDashboard size={18} />
+              Доска
+            </button>
 
-          {/* Dropdown */}
-          {open && (
-            <div className={styles.dropdown}>
-              <ul>
-                <li>
-                  <a href="#">Личная</a>
-                </li>
-                <li>
-                  <a href="#">Общая</a>
-                </li>
-              </ul>
-            </div>
-          )}
+            {open && (
+              <div className={styles.dropdown}>
+                <ul>
+                  <li><a href="#">Личная</a></li>
+                  <li><a href="#">Общая</a></li>
+                </ul>
+              </div>
+            )}
+          </div>
 
           {isAdmin && (
-            <button className={styles.adminButton}>
-              Departments
-            </button>
+            <Link href="/admin" className={styles.navLink}>
+              <LuBuilding2 size={18} />
+              Департаменты
+            </Link>
           )}
+
+          <Link href="/profile" className={styles.navLink}>
+            <LuUser size={18} />
+            Профиль
+          </Link>
         </nav>
       </div>
     </header>

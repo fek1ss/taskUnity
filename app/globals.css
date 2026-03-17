@@ -13,28 +13,9 @@
   box-sizing: border-box;
 }
 
-.bg-primary {
-  background-color: var(--background);
-}
-
-.main-color {
-  color: var(--main-color);
-}
-
-.bg-main {
-  background-color: var(--main-color);
-}
-
-.bg-y {
-  background-color: var(--yellow-color);
-}
-
-.bg-b {
-  background-color: var(--blue-color);
-}
-
-.bg-g {
-  background-color: var(--green-color);
+.wrapper {
+  width: 90%;
+  margin: 0 auto;
 }
 
 @theme inline {
@@ -59,4 +40,9 @@ body {
 
 .font-inter {
   font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+
+a {
+  text-decoration: none;
 }

@@ -1,20 +1,19 @@
 .participantSelect {
   position: relative;
-  width: 100%;
-  max-width: 360px;
 }
 
 .selectHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  padding: 16px 20px;
+  padding: 8px 20px;
+  width: auto;
   border-radius: 6px;
-
   background: #f3e788;
   color: #000;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 .arrow {
@@ -32,16 +31,30 @@
   top: calc(100% + 4px);
   left: 0;
   width: 100%;
-
   background: #f3e788;
   border-radius: 6px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
   z-index: 10;
+
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    max-height 0.25s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
+.options.open {
+  max-height: 300px; // больше чем реальная высота
+  opacity: 1;
+  transform: translateY(0);
+}
 .option {
   padding: 8px 20px;
   cursor: pointer;
+  color: black;
+  list-style: none;
 
   &:hover {
     background: #f0dc5a;

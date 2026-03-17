@@ -1,11 +1,13 @@
-import { Header } from '../widgets/header/ui/Header';
+import Hero from '@/widgets/hero/ui/Hero';
 import { Board } from './../widgets/board/ui/Board';
 
 export default function Home() {
   return (
     <div>
-      <Header />
-      <Board />
+      <div className='wrapper'>
+        <Hero />
+        <Board />
+      </div>
     </div>
   );
 }

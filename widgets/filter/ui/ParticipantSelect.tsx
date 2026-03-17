@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from 'react-icons/md'
 import styles from './ParticipantSelect.module.scss'
 
 export function ParticipantSelect() {
@@ -16,45 +17,36 @@ export function ParticipantSelect() {
 
   return (
     <div className={styles.participantSelect}>
-      {/* Header */}
       <div
         onClick={() => setOpen(prev => !prev)}
         className={styles.selectHeader}
       >
         <span>{selected}</span>
 
-        <svg
-          className={`${styles.arrow} ${open ? styles.rotated : ''}`}
-          viewBox="0 0 24 24"
-          fill="none"
-        >
-          <path
-            d="m19 9-7 7-7-7"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        {open ? (
+          <MdKeyboardArrowUp size={20} />
+        ) : (
+          <MdKeyboardArrowDown size={20} />
+        )}
       </div>
 
-      {/* Options */}
-      {open && (
-        <ul className={styles.options}>
-          {participants.map(p => (
-            <li
-              key={p}
-              onClick={() => {
-                setSelected(p)
-                setOpen(false)
-              }}
-              className={styles.option}
-            >
-              {p}
-            </li>
-          ))}
-        </ul>
-      )}
+      <ul
+        className={`${styles.options} ${open ? styles.open : ''}`}
+      >
+        {participants.map(p => (
+          <li
+            key={p}
+            onClick={() => {
+              setSelected(p)
+              setOpen(false)
+            }}
+            className={styles.option}
+          >
+            {p}
+          </li>
+        ))}
+      </ul>
+
     </div>
   )
 }
